@@ -1,0 +1,52 @@
+
+
+classes:
+	clientes
+	categoria
+	produto
+	venda
+	Mercado
+	
+	
+Cliente:
+	Cliente
+	Telefone
+	
+	Funcoes:
+		Comprar() - que já é a classe venda
+		PagarFiado()
+	
+Categoria:
+	Categoria
+	Descricao
+
+Produto:
+	Produto
+	Preco
+	Categoria
+	
+	Funcoes:
+		mudarPreco()
+		pegarPreco()
+		mudarEstoque(0)
+
+Venda
+	Produtos
+	Quantidade
+		//Preco ja herda do produto
+	Pagamento
+	
+	Funcoes:
+		checarFiado() olha se o cliente botou no fiado
+				
+
+Mercado:
+	estoque_todos - herda de Produto
+	
+	dinheiro_caixa 
+	veacos
+	
+	Funcoes:
+		mostrar_grafico()
+		
+	

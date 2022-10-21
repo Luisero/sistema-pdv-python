@@ -10,3 +10,4 @@ class Cliente:
 
     def pagar_fiado(self, valor):
         pass
+

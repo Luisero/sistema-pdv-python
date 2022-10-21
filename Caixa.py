@@ -1,5 +1,5 @@
-from math import prod
 from Venda import Venda
+from Veaco import Veaco
 from clear import clear
 
 
@@ -8,6 +8,7 @@ class Caixa:
     categorias = []
     clientes = []
     vendas = []
+    veacos = []
         
     def __init__(self, dinheiro_caixa):
         self.dinheiro_caixa = dinheiro_caixa
@@ -42,6 +43,10 @@ class Caixa:
     def realizarVenda(self):
         
         clear()
+        print(self.get_clientes())
+        id_cliente = int(input('Digite o id do cliente: '))
+
+        cliente = self.clientes[id_cliente]
         print(self.get_produtos())
 
         carrinho = []
@@ -63,11 +68,18 @@ class Caixa:
 
         valor_pagamento = float(input('Digite o valor com que quer pagar'))
 
-        venda = Venda(carrinho,valor_pagamento)
+        venda = Venda(carrinho,valor_pagamento,cliente)
 
+        if venda.ficouFiado():
+            veaco = Veaco(cliente, venda.valorFiado())
+            self.veacos.append(veaco)
         self.vendas.append(venda)
 
+    def get_veacos(self):
+        texto_veacos= ''
 
+        for veaco in self.veacos:
+            print(veaco)
     def get_vendas(self):
         texto_vendas = ''
 
@@ -76,11 +88,20 @@ class Caixa:
             for produto in venda.produtos:
                 produto_vendido = produto['Produto']
 
-                texto_vendas += f'| Produto {produto["Produto"]} - Quantidade: {produto["Quantidade"]} |'
+                texto_vendas += f'| Produto {produto["Produto"]} - Quantidade: {produto["Quantidade"]} | Valor: |'
 
-            texto_vendas += '\n'
+            texto_vendas += f'| R$ {venda.valor_compra}\n'
 
         return texto_vendas
 
+    def get_clientes(self):
+        texto_clientes = ''
+
+        for i, cliente in enumerate(self.clientes):
+            texto_clientes += f'[{i}] Cliente: {cliente.nome}\n'
+
+
+
+        return texto_clientes
 
 

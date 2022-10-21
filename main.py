@@ -3,7 +3,7 @@ from Categorias import Categoria
 from Produto import Produto
 from Venda import Venda
 from Caixa import Caixa
-
+from Veaco import Veaco
 from clear import clear
 from time import sleep
 
@@ -30,8 +30,8 @@ caixa.produtos = [
 ]
 
 caixa.vendas = [
-    Venda([{'Produto':caixa.produtos[3], 'Quantidade':4}], 50),
-    Venda([{'Produto':caixa.produtos[2], 'Quantidade': 4}, {'Produto':caixa.produtos[1], 'Quantidade':4}],100)
+    Venda([{'Produto':caixa.produtos[3], 'Quantidade':4}], 50, caixa.clientes[0]),
+    Venda([{'Produto':caixa.produtos[2], 'Quantidade': 4}, {'Produto':caixa.produtos[1], 'Quantidade':4}],100, caixa.clientes[1])
 ]
 
 
@@ -62,7 +62,7 @@ def main():
             caixa.clientes.append(cliente)
             clear()
 
-            print('Usuario cadastrado.')
+            print('Cliente cadastrado.')
             sleep(1)
         #cadastrar produto
         elif escolha == '1':
@@ -124,10 +124,13 @@ def main():
             caixa.realizarVenda()
 
 
-
+        #checar vendas
         elif escolha == '4':
             print(caixa.get_vendas())
-            input()
+            input('Enter para sair')
+            clear()
 
-
+        #checar veacos
+        elif escolha == '5':
+            caixa.get_veacos()
 main()

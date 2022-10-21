@@ -1,10 +1,11 @@
 class Venda:
 
 
-    def __init__(self, produtos,pagamento ): #produtos é uma lista de  dicionario que tem o produto e a quantidade comprada
+    def __init__(self, produtos,pagamento, cliente ): #produtos é uma lista de  dicionario que tem o produto e a quantidade comprada
         self.produtos = produtos
         self.pagamento = pagamento
         self._valor_compra = 0
+        self.cliente = cliente
     def __str__(self):
         return self.produtos
 
