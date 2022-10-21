@@ -12,14 +12,14 @@ class Venda:
     @property
     def valor_compra(self):
 
-
+        self._valor_compra = 0
         for produto in self.produtos:
             self._valor_compra += produto['Quantidade'] * produto['Produto'].preco
 
         return self._valor_compra
 
     def valorFiado(self):
-        return self.valor_compra - self.pagamento
+        return self._valor_compra - self.pagamento
 
     def ficouFiado(self):
         if self.pagamento < self.valor_compra:

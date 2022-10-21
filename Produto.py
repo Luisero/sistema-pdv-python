@@ -20,7 +20,8 @@ class Produto:
             self._preco = preco
 
 
-    def diminuir_estoque
+    def diminuir_estoque(self, quantidade):
+        self.estoque -= quantidade
 
 
 

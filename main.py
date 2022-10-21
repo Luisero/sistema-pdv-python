@@ -34,7 +34,9 @@ caixa.vendas = [
     Venda([{'Produto':caixa.produtos[2], 'Quantidade': 4}, {'Produto':caixa.produtos[1], 'Quantidade':4}],100, caixa.clientes[1])
 ]
 
-
+caixa.veacos = [
+    Veaco(caixa.clientes[0], 10)
+]
 # for produto in caixa.vendas[0].produtos:
 #     print(produto['Produto'])
 #     print(produto['Quantidade'])
@@ -49,6 +51,8 @@ def main():
         print(f'|{"Realizar venda [3]": ^25.25}|')
         print(f'|{"Checar vendas [4]": ^25.25}|')
         print(f'|{"Checar veacos [5]": ^25.25}|')
+        print(f'|{"Valor em caixa [6]": ^25.25}|')
+        print(f'|{"Gráfico de vendas [7]": ^25.25}|')
         print(f'+{"":-^25.25}+')
 
         escolha = input('O que deseja fazer?')
@@ -95,11 +99,9 @@ def main():
 
             print(caixa.get_produtos())
 
-            input('Adicionar estoque de produtos? [0] Sim [1] Não: ')
+            escolha_estoque = input('Adicionar estoque de produtos? [0] Sim [1] Não: ')
 
-            if escolha == '1':
-                pass 
-            else:
+            if escolha_estoque == '0':
                 clear()
 
                 print(caixa.get_produtos())
@@ -119,6 +121,7 @@ def main():
                 print('Produto atualizado.')
                 sleep(1)
 
+
         #realizar venda
         elif escolha == '3':
             caixa.realizarVenda()
@@ -132,5 +135,14 @@ def main():
 
         #checar veacos
         elif escolha == '5':
-            caixa.get_veacos()
+            print(caixa.get_veacos())
+            input('Aperte Enter para sair')
+        #checar valor do caixa
+        elif escolha == '6':
+            print(f'R$ {caixa.dinheiro_caixa}')
+            input('Aperte Enter para sair')
+
+        #grafico de vendas
+        elif escolha == '7':
+            caixa.grafico_vendas()
 main()
