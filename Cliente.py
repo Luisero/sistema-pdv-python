@@ -1,9 +1,8 @@
 class Cliente:
 
-    def __init__(self, nome, telefone):
+    def __init__(self, nome):
         self.nome = nome
-        self.telefone = telefone
-
+        
     def __str__(self):
         return self.nome
     def comprar(self,produtos):

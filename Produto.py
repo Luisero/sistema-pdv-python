@@ -15,7 +15,7 @@ class Produto:
     @preco.setter
     def preco(self, preco):
         if preco<0:
-            raise Exception('O preço não pode ser negativo')
+            print('O preço não pode ser negativo')
         else:
             self._preco = preco
 

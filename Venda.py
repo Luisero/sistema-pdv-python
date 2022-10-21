@@ -17,11 +17,16 @@ class Venda:
 
         return self._valor_compra
 
-
+    def valorFiado(self):
+        return self.valor_compra - self.pagamento
 
     def ficouFiado(self):
         if self.pagamento < self.valor_compra:
             self.fiado = True
+            return True
+
+    
 
         else:
             self.fiado = False
+            return  False
